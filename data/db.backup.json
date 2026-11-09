@@ -1,0 +1,468 @@
+{
+  "settings": {
+    "theme": "dark",
+    "currency": "VND",
+    "userName": "Cá Nhân",
+    "dailyReminderTime": "21:00"
+  },
+  "projects": [
+    {
+      "id": "proj-1792928029130",
+      "title": "DRL 2026.1",
+      "description": "",
+      "color": "#f98467",
+      "icon": "folder",
+      "createdAt": "2026-10-25T11:33:49.130Z"
+    },
+    {
+      "id": "proj-1792933142676",
+      "title": "o365",
+      "description": "",
+      "color": "#3a6af8",
+      "icon": "folder",
+      "createdAt": "2026-10-25T12:59:02.676Z"
+    },
+    {
+      "id": "proj-1792975630796",
+      "title": "Học",
+      "description": "",
+      "color": "#fc1d1d",
+      "icon": "folder",
+      "createdAt": "2026-10-26T00:47:10.796Z"
+    },
+    {
+      "id": "proj-1792975709205",
+      "title": "Web cá nhân",
+      "description": "",
+      "color": "#3af8d8",
+      "icon": "folder",
+      "createdAt": "2026-10-26T00:48:29.205Z"
+    },
+    {
+      "id": "proj-1793006596443",
+      "title": "Lab",
+      "description": "",
+      "color": "#0bf4a6",
+      "icon": "folder",
+      "createdAt": "2026-10-26T09:23:16.443Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1792932908204",
+      "projectId": "proj-1792928029130",
+      "title": "Minh chứng 2 kì thi của App thanh niên",
+      "deadline": "2026-10-30T16:00",
+      "priority": "medium",
+      "status": "done",
+      "details": "",
+      "subtasks": [
+        {
+          "id": "sub-1792933022534",
+          "text": "Tổng hợp file 1",
+          "done": true
+        },
+        {
+          "id": "sub-1792933026442",
+          "text": "Tổng hợp file 2",
+          "done": true
+        },
+        {
+          "id": "sub-1792933029509",
+          "text": "Nộp",
+          "done": true
+        }
+      ],
+      "links": [
+        {
+          "id": "link-1792933216318",
+          "title": "https://forms.cloud.microsoft/pages/responsepage.aspx?id=n7jxBugHT0a0COwbRXA_Md5n_l8_s6ZPthcmlkSAONlUODdDRFVESkFQMDQ1QzU2TERZRVRNWlNMMC4u&route=shorturl",
+          "url": "https://forms.cloud.microsoft/pages/responsepage.aspx?id=n7jxBugHT0a0COwbRXA_Md5n_l8_s6ZPthcmlkSAONlUODdDRFVESkFQMDQ1QzU2TERZRVRNWlNMMC4u&route=shorturl"
+        }
+      ],
+      "attachments": [],
+      "createdAt": "2026-10-25T12:55:08.204Z",
+      "completedAt": "2026-10-30T01:00:00.018Z"
+    },
+    {
+      "id": "task-1792933077554",
+      "projectId": "proj-1792928029130",
+      "title": "Viết 5 bài người giữ lửa",
+      "deadline": "2026-11-30T16:00",
+      "priority": "low",
+      "status": "todo",
+      "details": "",
+      "subtasks": [
+        {
+          "id": "sub-1792933083116",
+          "text": "Check đăng nhâp",
+          "done": false
+        },
+        {
+          "id": "sub-1792933085893",
+          "text": "viết 5 bài",
+          "done": false
+        }
+      ],
+      "links": [
+        {
+          "id": "link-1792933234434",
+          "title": "https://ctsv.hust.edu.vn/hoat-dong/15957/tham-gia-tuyen-truyen-cau-chuyen-thoi-hoa-lua-moi-nhan-chung-la-mot-trang-su-song",
+          "url": "https://ctsv.hust.edu.vn/hoat-dong/15957/tham-gia-tuyen-truyen-cau-chuyen-thoi-hoa-lua-moi-nhan-chung-la-mot-trang-su-song"
+        }
+      ],
+      "attachments": [],
+      "createdAt": "2026-10-25T12:57:57.554Z"
+    },
+    {
+      "id": "task-1792933178292",
+      "projectId": "proj-1792933142676",
+      "title": "Làm form kiểm tra final",
+      "deadline": "2026-10-27T23:59",
+      "priority": "high",
+      "status": "done",
+      "details": "",
+      "subtasks": [
+        {
+          "id": "sub-1792975587652",
+          "text": "Tổng hợp cấu trúc câu hỏi",
+          "done": true
+        },
+        {
+          "id": "sub-1793006398094",
+          "text": "Họp",
+          "done": false
+        }
+      ],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-25T12:59:38.292Z",
+      "completedAt": "2026-10-29T16:22:26.268Z"
+    },
+    {
+      "id": "task-1792975678109",
+      "projectId": "proj-1792975630796",
+      "title": "Xử lí dữ liệu Bài 1 VLDC",
+      "deadline": "2026-10-28T08:00",
+      "priority": "high",
+      "status": "done",
+      "details": "",
+      "subtasks": [],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-26T00:47:58.138Z",
+      "completedAt": "2026-10-27T09:55:14.665Z"
+    },
+    {
+      "id": "task-1792976052741",
+      "projectId": "proj-1792975630796",
+      "title": "Hoàn thành chương 1 PPT",
+      "deadline": "2026-10-29T23:59",
+      "priority": "medium",
+      "status": "todo",
+      "details": "",
+      "subtasks": [
+        {
+          "id": "sub-1793007106075",
+          "text": "Tổng hợp kiến thức c1",
+          "done": false
+        },
+        {
+          "id": "sub-1793007114083",
+          "text": "Làm hết bài tập trong đại cương c1",
+          "done": false
+        }
+      ],
+      "links": [
+        {
+          "id": "link-1793006874541",
+          "title": "https://drive.google.com/drive/folders/1vnDH6XjSUNIGv1Nl_tC8ajVTiedSM99d?fbclid=IwY2xjawVL_FhleHRuA2FlbQIxMABwZG9mBWJyaWQRMVNRQXg5MFpqTFBXWWUxY3RzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEePg-dXUxj6vGOWo3b33x8TBT79KxYZyWVAXhC9Z2sqao5Yvs3NCqZw8uVYw0_aem_jmKLrnMl7bPUYxaNu_gwqA",
+          "url": "https://drive.google.com/drive/folders/1vnDH6XjSUNIGv1Nl_tC8ajVTiedSM99d?fbclid=IwY2xjawVL_FhleHRuA2FlbQIxMABwZG9mBWJyaWQRMVNRQXg5MFpqTFBXWWUxY3RzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEePg-dXUxj6vGOWo3b33x8TBT79KxYZyWVAXhC9Z2sqao5Yvs3NCqZw8uVYw0_aem_jmKLrnMl7bPUYxaNu_gwqA"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "att-1793006946853",
+          "originalName": "Giải-đề-cương-Phương-pháp-tính-Mi2010-sai-sotongdagia-han-8p-5-108015-x10-as-Sai-so-Studocu.pdf",
+          "fileName": "1793006946826_Gi_i-__-c__ng-Ph__ng-ph_p-t_nh-Mi2010-sai-sotongdagia-han-8p-5-108015-x10-as-Sai-so-Studocu.pdf",
+          "size": 2470237,
+          "mimeType": "application/pdf",
+          "uploadedAt": "2026-10-26T09:29:06.853Z",
+          "url": "/uploads/tasks/1793006946826_Gi_i-__-c__ng-Ph__ng-ph_p-t_nh-Mi2010-sai-sotongdagia-han-8p-5-108015-x10-as-Sai-so-Studocu.pdf"
+        },
+        {
+          "id": "att-1793007079736",
+          "originalName": "MI2020_Baitap_Xacsuatthongke_2024 (1).pdf",
+          "fileName": "1793007079730_MI2020_Baitap_Xacsuatthongke_2024__1_.pdf",
+          "size": 336470,
+          "mimeType": "application/pdf",
+          "uploadedAt": "2026-10-26T09:31:19.736Z",
+          "url": "/uploads/tasks/1793007079730_MI2020_Baitap_Xacsuatthongke_2024__1_.pdf"
+        }
+      ],
+      "createdAt": "2026-10-26T00:54:12.741Z"
+    },
+    {
+      "id": "task-1792976967291",
+      "projectId": "proj-1792975630796",
+      "title": "Luận KTCT",
+      "deadline": "2026-10-27T02:00",
+      "priority": "medium",
+      "status": "done",
+      "details": "Để tên trong bài, nộp PDF",
+      "subtasks": [],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-26T01:09:27.291Z",
+      "completedAt": "2026-10-27T00:39:25.812Z"
+    },
+    {
+      "id": "task-1792977054710",
+      "projectId": "proj-1792975630796",
+      "title": "Quay KTCT",
+      "deadline": "2026-10-27T02:00",
+      "priority": "urgent",
+      "status": "done",
+      "details": "Không có bài này là tính không điểm cả bài luận",
+      "subtasks": [],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-26T01:10:54.711Z",
+      "completedAt": "2026-11-01T15:34:35.193Z"
+    },
+    {
+      "id": "task-1793006572405",
+      "projectId": "proj-1792975709205",
+      "title": "Nghiên cứu deploy lên web",
+      "deadline": "2026-11-12T13:00",
+      "priority": "medium",
+      "status": "done",
+      "details": "",
+      "subtasks": [],
+      "links": [
+        {
+          "id": "link-1793091238094",
+          "title": "https://vt.tiktok.com/ZSgQKgrx6/",
+          "url": "https://vt.tiktok.com/ZSgQKgrx6/"
+        },
+        {
+          "id": "link-1793091275543",
+          "title": "https://www.tiktok.com/@cuonghoa.ai/video/7688544852891553044?_r=1&_t=ZS-9AsKYFXr87u",
+          "url": "https://www.tiktok.com/@cuonghoa.ai/video/7688544852891553044?_r=1&_t=ZS-9AsKYFXr87u"
+        }
+      ],
+      "attachments": [],
+      "createdAt": "2026-10-26T09:22:52.405Z",
+      "completedAt": "2026-10-29T16:22:34.806Z"
+    },
+    {
+      "id": "task-1793006739471",
+      "projectId": "proj-1792975709205",
+      "title": "Nghiên cứu việc dùng app lấy dữ liệu trên gmail",
+      "deadline": "2026-12-01T13:00",
+      "priority": "medium",
+      "status": "todo",
+      "details": "",
+      "subtasks": [],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-26T09:25:39.471Z"
+    },
+    {
+      "id": "task-1793007308892",
+      "projectId": "proj-1793006596443",
+      "title": "Nhắn mail xin thầy Nguyễn Hoàng Dũng",
+      "deadline": "2026-11-11T10:00",
+      "priority": "high",
+      "status": "todo",
+      "details": "Mail của thầy: dung.nguyenhoang@hust.edu.vn",
+      "subtasks": [
+        {
+          "id": "sub-1793007341513",
+          "text": "Soạn mail, và gửi cho mẹ đọc qua.",
+          "done": false
+        },
+        {
+          "id": "sub-1793007349017",
+          "text": "Gửi mail",
+          "done": false
+        }
+      ],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-26T09:35:08.892Z"
+    },
+    {
+      "id": "task-1793007519349",
+      "projectId": "proj-1792975630796",
+      "title": "Làm bài tập tiếng Trung",
+      "deadline": "2026-10-31T19:30",
+      "priority": "medium",
+      "status": "done",
+      "details": "",
+      "subtasks": [
+        {
+          "id": "sub-1793007533656",
+          "text": "Chép bài khóa bù",
+          "done": false
+        },
+        {
+          "id": "sub-1793007538176",
+          "text": "Chép từ mới",
+          "done": false
+        },
+        {
+          "id": "sub-1793007543689",
+          "text": "làm btap trong sách bài tập",
+          "done": false
+        }
+      ],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-26T09:38:39.349Z",
+      "completedAt": "2026-11-01T15:34:39.848Z"
+    },
+    {
+      "id": "task-1793547321922",
+      "projectId": "proj-1792975709205",
+      "title": "Nâng cấp app sao cho những mục đã tích đi vào một chỗ",
+      "deadline": "2026-11-03T19:00",
+      "priority": "medium",
+      "status": "todo",
+      "details": "",
+      "subtasks": [],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-11-01T15:35:21.924Z"
+    },
+    {
+      "id": "task-1793547359072",
+      "projectId": "proj-1792975630796",
+      "title": "Hoàn thành chương 2 và làm 1 đề giữ kì trên onthiEZ",
+      "deadline": "2026-11-02T12:00",
+      "priority": "high",
+      "status": "todo",
+      "details": "",
+      "subtasks": [],
+      "links": [
+        {
+          "id": "link-1793547367830",
+          "title": "https://www.onthiez.com/bai-tap/hoc-ly-thuyet.22792",
+          "url": "https://www.onthiez.com/bai-tap/hoc-ly-thuyet.22792"
+        },
+        {
+          "id": "link-1793547382514",
+          "title": "https://file:///D:/Downloads/MI2010_BTTK_2024V2.pdf",
+          "url": "https://file:///D:/Downloads/MI2010_BTTK_2024V2.pdf"
+        },
+        {
+          "id": "link-1793547448562",
+          "title": "https://file:///D:/Downloads/Giải-đề-cương-Phương-pháp-tính-Mi2010-sai-sotongdagia-han-8p-5-108015-x10-as-Sai-so-Studocu.pdf",
+          "url": "https://file:///D:/Downloads/Giải-đề-cương-Phương-pháp-tính-Mi2010-sai-sotongdagia-han-8p-5-108015-x10-as-Sai-so-Studocu.pdf"
+        }
+      ],
+      "attachments": [],
+      "createdAt": "2026-11-01T15:35:59.072Z"
+    }
+  ],
+  "finance": {
+    "budgets": {
+      "2026-11": {
+        "totalBudget": 4500000,
+        "allocationMode": "amount",
+        "note": ""
+      }
+    },
+    "funds": [
+      {
+        "id": "fund-4",
+        "name": "Đầu tư tương lai",
+        "percent": 27,
+        "fixedAmount": 1200000,
+        "color": "#fbbf24",
+        "icon": "smile",
+        "description": ""
+      },
+      {
+        "id": "fund-1792933319296",
+        "name": "Chi tiêu tháng ",
+        "percent": 22,
+        "fixedAmount": 1000000,
+        "color": "#34d399",
+        "icon": "wallet",
+        "description": ""
+      },
+      {
+        "id": "fund-1792933355480",
+        "name": "Tiền đóng nhà",
+        "percent": 22,
+        "fixedAmount": 1000000,
+        "color": "#818cf8",
+        "icon": "wallet",
+        "description": ""
+      },
+      {
+        "id": "fund-1792933372798",
+        "name": "Tiền xăng ",
+        "percent": 20,
+        "fixedAmount": 900000,
+        "color": "#a78bfa",
+        "icon": "wallet",
+        "description": ""
+      },
+      {
+        "id": "fund-1792933447409",
+        "name": "Tiết kiệm",
+        "percent": 9,
+        "fixedAmount": 400000,
+        "color": "#f472b6",
+        "icon": "wallet",
+        "description": ""
+      }
+    ],
+    "tags": [
+      {
+        "id": "Food",
+        "name": "Food (Ăn uống)",
+        "color": "#fb923c"
+      },
+      {
+        "id": "Study",
+        "name": "Study (Học tập)",
+        "color": "#34d399"
+      },
+      {
+        "id": "Invest",
+        "name": "Invest (Đầu tư)",
+        "color": "#818cf8"
+      },
+      {
+        "id": "Entertain",
+        "name": "Entertain (Giải trí)",
+        "color": "#f472b6"
+      },
+      {
+        "id": "Transport",
+        "name": "Transport (Đi lại)",
+        "color": "#22d3ee"
+      },
+      {
+        "id": "Shopping",
+        "name": "Shopping (Mua sắm)",
+        "color": "#fbbf24"
+      },
+      {
+        "id": "Medical",
+        "name": "Medical (Sức khỏe)",
+        "color": "#f87171"
+      },
+      {
+        "id": "Bills",
+        "name": "Bills (Hóa đơn)",
+        "color": "#94a3b8"
+      }
+    ],
+    "transactions": [],
+    "dailyRecaps": {}
+  }
+}

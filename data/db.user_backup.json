@@ -1,0 +1,290 @@
+{
+  "settings": {
+    "theme": "dark",
+    "currency": "VND",
+    "userName": "Cá Nhân",
+    "dailyReminderTime": "21:00"
+  },
+  "projects": [
+    {
+      "id": "proj-1792928029130",
+      "title": "DRL 2026.1",
+      "description": "",
+      "color": "#f98467",
+      "icon": "folder",
+      "createdAt": "2026-10-25T11:33:49.130Z"
+    },
+    {
+      "id": "proj-1792933142676",
+      "title": "o365",
+      "description": "",
+      "color": "#3a6af8",
+      "icon": "folder",
+      "createdAt": "2026-10-25T12:59:02.676Z"
+    },
+    {
+      "id": "proj-1792975630796",
+      "title": "Học",
+      "description": "",
+      "color": "#fc1d1d",
+      "icon": "folder",
+      "createdAt": "2026-10-26T00:47:10.796Z"
+    },
+    {
+      "id": "proj-1792975709205",
+      "title": "Web cá nhân",
+      "description": "",
+      "color": "#3af8d8",
+      "icon": "folder",
+      "createdAt": "2026-10-26T00:48:29.205Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1792932908204",
+      "projectId": "proj-1792928029130",
+      "title": "Minh chứng 2 kì thi của App thanh niên",
+      "deadline": "2026-10-30T16:00",
+      "priority": "medium",
+      "status": "todo",
+      "details": "",
+      "subtasks": [
+        {
+          "id": "sub-1792933022534",
+          "text": "Tổng hợp file 1",
+          "done": false
+        },
+        {
+          "id": "sub-1792933026442",
+          "text": "Tổng hợp file 2",
+          "done": false
+        },
+        {
+          "id": "sub-1792933029509",
+          "text": "Nộp",
+          "done": false
+        }
+      ],
+      "links": [
+        {
+          "id": "link-1792933216318",
+          "title": "https://forms.cloud.microsoft/pages/responsepage.aspx?id=n7jxBugHT0a0COwbRXA_Md5n_l8_s6ZPthcmlkSAONlUODdDRFVESkFQMDQ1QzU2TERZRVRNWlNMMC4u&route=shorturl",
+          "url": "https://forms.cloud.microsoft/pages/responsepage.aspx?id=n7jxBugHT0a0COwbRXA_Md5n_l8_s6ZPthcmlkSAONlUODdDRFVESkFQMDQ1QzU2TERZRVRNWlNMMC4u&route=shorturl"
+        }
+      ],
+      "attachments": [],
+      "createdAt": "2026-10-25T12:55:08.204Z"
+    },
+    {
+      "id": "task-1792933077554",
+      "projectId": "proj-1792928029130",
+      "title": "Viết 5 bài người giữ lửa",
+      "deadline": "2026-11-30T16:00",
+      "priority": "medium",
+      "status": "todo",
+      "details": "",
+      "subtasks": [
+        {
+          "id": "sub-1792933083116",
+          "text": "Check đăng nhâp",
+          "done": false
+        },
+        {
+          "id": "sub-1792933085893",
+          "text": "viết 5 bài",
+          "done": false
+        }
+      ],
+      "links": [
+        {
+          "id": "link-1792933234434",
+          "title": "https://ctsv.hust.edu.vn/hoat-dong/15957/tham-gia-tuyen-truyen-cau-chuyen-thoi-hoa-lua-moi-nhan-chung-la-mot-trang-su-song",
+          "url": "https://ctsv.hust.edu.vn/hoat-dong/15957/tham-gia-tuyen-truyen-cau-chuyen-thoi-hoa-lua-moi-nhan-chung-la-mot-trang-su-song"
+        }
+      ],
+      "attachments": [],
+      "createdAt": "2026-10-25T12:57:57.554Z"
+    },
+    {
+      "id": "task-1792933178292",
+      "projectId": "proj-1792933142676",
+      "title": "Làm form kiểm tra final",
+      "deadline": "2026-10-27T23:59",
+      "priority": "high",
+      "status": "todo",
+      "details": "",
+      "subtasks": [
+        {
+          "id": "sub-1792975587652",
+          "text": "Tổng hợp cấu trúc câu hỏi",
+          "done": false
+        },
+        {
+          "id": "sub-1792975594465",
+          "text": "làm 20 câu đầu",
+          "done": false
+        },
+        {
+          "id": "sub-1792975598277",
+          "text": "20 câu sau",
+          "done": false
+        }
+      ],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-25T12:59:38.292Z"
+    },
+    {
+      "id": "task-1792975678109",
+      "projectId": "proj-1792975630796",
+      "title": "Xử lí dữ liệu Bài 1 VLDC",
+      "deadline": "2026-10-28T08:00",
+      "priority": "high",
+      "status": "todo",
+      "details": "",
+      "subtasks": [],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-26T00:47:58.138Z"
+    },
+    {
+      "id": "task-1792976052741",
+      "projectId": "proj-1792975630796",
+      "title": "Hoàn thành chương 1 PPT",
+      "deadline": "2026-10-29T23:59",
+      "priority": "medium",
+      "status": "todo",
+      "details": "",
+      "subtasks": [],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-26T00:54:12.741Z"
+    },
+    {
+      "id": "task-1792976967291",
+      "projectId": "proj-1792975630796",
+      "title": "Luận KT",
+      "deadline": "2026-10-26T05:00",
+      "priority": "medium",
+      "status": "todo",
+      "details": "Để tên trong bài, nộp PDF",
+      "subtasks": [],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-26T01:09:27.291Z"
+    },
+    {
+      "id": "task-1792977054710",
+      "projectId": "proj-1792975630796",
+      "title": "Quay KTCT",
+      "deadline": "2026-10-26T05:00",
+      "priority": "urgent",
+      "status": "todo",
+      "details": "Không có bài này là tính không điểm cả bài luận",
+      "subtasks": [],
+      "links": [],
+      "attachments": [],
+      "createdAt": "2026-10-26T01:10:54.711Z"
+    }
+  ],
+  "finance": {
+    "budgets": {
+      "2026-11": {
+        "totalBudget": 4500000,
+        "allocationMode": "amount",
+        "note": ""
+      }
+    },
+    "funds": [
+      {
+        "id": "fund-4",
+        "name": "Đầu tư tương lai",
+        "percent": 27,
+        "fixedAmount": 1200000,
+        "color": "#fbbf24",
+        "icon": "smile",
+        "description": ""
+      },
+      {
+        "id": "fund-1792933319296",
+        "name": "Chi tiêu tháng ",
+        "percent": 22,
+        "fixedAmount": 1000000,
+        "color": "#34d399",
+        "icon": "wallet",
+        "description": ""
+      },
+      {
+        "id": "fund-1792933355480",
+        "name": "Tiền đóng nhà",
+        "percent": 22,
+        "fixedAmount": 1000000,
+        "color": "#818cf8",
+        "icon": "wallet",
+        "description": ""
+      },
+      {
+        "id": "fund-1792933372798",
+        "name": "Tiền xăng ",
+        "percent": 20,
+        "fixedAmount": 900000,
+        "color": "#a78bfa",
+        "icon": "wallet",
+        "description": ""
+      },
+      {
+        "id": "fund-1792933447409",
+        "name": "Tiết kiệm",
+        "percent": 9,
+        "fixedAmount": 400000,
+        "color": "#f472b6",
+        "icon": "wallet",
+        "description": ""
+      }
+    ],
+    "tags": [
+      {
+        "id": "Food",
+        "name": "Food (Ăn uống)",
+        "color": "#fb923c"
+      },
+      {
+        "id": "Study",
+        "name": "Study (Học tập)",
+        "color": "#34d399"
+      },
+      {
+        "id": "Invest",
+        "name": "Invest (Đầu tư)",
+        "color": "#818cf8"
+      },
+      {
+        "id": "Entertain",
+        "name": "Entertain (Giải trí)",
+        "color": "#f472b6"
+      },
+      {
+        "id": "Transport",
+        "name": "Transport (Đi lại)",
+        "color": "#22d3ee"
+      },
+      {
+        "id": "Shopping",
+        "name": "Shopping (Mua sắm)",
+        "color": "#fbbf24"
+      },
+      {
+        "id": "Medical",
+        "name": "Medical (Sức khỏe)",
+        "color": "#f87171"
+      },
+      {
+        "id": "Bills",
+        "name": "Bills (Hóa đơn)",
+        "color": "#94a3b8"
+      }
+    ],
+    "transactions": [],
+    "dailyRecaps": {}
+  }
+}

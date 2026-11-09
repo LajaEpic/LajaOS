@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LajaOS - Quản Lý Đời Sống Cá Nhân </title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" id="app-favicon" type="image/svg+xml" href="/custom-logo/favicon.svg">
+</head>
+<body>
+
+  <!-- Top App Navigation Bar -->
+  <header class="app-header">
+    <!-- Brand / Logo Area -->
+    <div class="brand-section" id="brand-logo-trigger" title="Bấm để đổi Logo hoặc mở cài đặt">
+      <div class="brand-logo-container">
+        <img id="app-brand-logo" src="/custom-logo/default-logo.svg" alt="LajaOS Logo" class="brand-logo-img">
+      </div>
+    </div>
+
+    <!-- Central Switcher Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-tab-btn active" id="tab-btn-planner">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+        Kế Hoạch & Deadline
+      </button>
+      <button class="nav-tab-btn" id="tab-btn-finance">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+        Quản Lý Tài Chính
+      </button>
+    </nav>
+
+    <!-- Header Right Status & Tools -->
+    <div class="header-actions">
+      <div class="date-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span id="header-live-date">Hôm nay</span>
+      </div>
+
+      <button class="recap-reminder-badge" id="btn-trigger-recap" title="Tổng kết chi tiêu cuối ngày">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+        Tổng Kết Hôm Nay
+      </button>
+
+      <button class="btn btn-secondary" id="btn-sync-cloud" title="Trạng thái & Đồng bộ dữ liệu">
+        <svg id="sync-icon-svg" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+        <span id="sync-status-indicator" style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#10b981; margin-right:3px;"></span>
+        <span id="sync-status-text">Đồng bộ</span>
+      </button>
+
+      <button class="btn btn-icon btn-secondary" id="btn-open-settings-modal" title="Cài đặt hệ thống">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <!-- ====================================================================
+         SECTION 1: KẾ HOẠCH & DEADLINE (PLANNER)
+         ==================================================================== -->
+    <section id="section-planner" class="view-section active">
+      <div class="planner-layout">
+        <!-- Sidebar: Projects / Goals -->
+        <aside class="project-sidebar">
+          <div class="card">
+            <div class="card-title">
+              <span>Kế Hoạch & Dự Án</span>
+              <button class="btn btn-icon btn-secondary" id="btn-new-project" title="Tạo dự án / kế hoạch lớn mới">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"/></svg>
+              </button>
+            </div>
+
+            <!-- All Projects button -->
+            <div class="project-item active" id="all-projects-btn" style="margin-bottom: 0.75rem;">
+              <div class="project-dot" style="background-color: var(--accent-cyan);"></div>
+              <div class="project-info">
+                <div class="project-name">Tất cả kế hoạch</div>
+                <div class="project-task-count">Toàn bộ mục tiêu & deadline</div>
+              </div>
+            </div>
+
+            <!-- List of Projects -->
+            <div id="project-list-container" style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Quick Tip Card -->
+          <div class="card" style="background: rgba(15, 23, 42, 0.6); border-style: dashed;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.3rem;">💡 Mẹo Quản Lý</div>
+            <p style="font-size: 0.78rem; color: var(--text-tertiary); line-height: 1.4;">
+              Bấm vào bất kỳ nhiệm vụ nào để mở bảng <strong>Notion Drawer</strong> bên phải: soạn checklist con, đính kèm link và kéo thả file tài liệu vào trực tiếp.
+            </p>
+          </div>
+        </aside>
+
+        <!-- Main Task Board -->
+        <div class="tasks-main">
+          <!-- Toolbar -->
+          <div class="tasks-header">
+            <!-- Filter Pills -->
+            <div class="task-filter-pills">
+              <button class="filter-pill planner-filter-pill active" data-filter="all">Tất cả</button>
+              <button class="filter-pill planner-filter-pill" data-filter="today">Hôm nay</button>
+              <button class="filter-pill planner-filter-pill" data-filter="done">Đã hoàn thành</button>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+              <!-- Sort Selector -->
+              <div class="sort-select-wrapper">
+                <label for="task-sort-select">Xếp theo:</label>
+                <select id="task-sort-select" class="form-select" style="width: auto; padding: 0.35rem 0.7rem; font-size: 0.82rem;">
+                  <option value="deadline" selected>Hạn chót (Mặc định theo ngày)</option>
+                  <option value="priority">Mức độ ưu tiên (Khẩn cấp trước)</option>
+                  <option value="created">Thời gian tạo (Mới nhất)</option>
+                </select>
+              </div>
+
+              <!-- Add Task Button -->
+              <button class="btn btn-primary" id="btn-new-task">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"/></svg>
+                Thêm Nhiệm Vụ
+              </button>
+            </div>
+          </div>
+
+          <!-- Tasks List Container -->
+          <div id="tasks-container" class="task-list">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: QUẢN LÝ TÀI CHÍNH (FINANCE)
+         ==================================================================== -->
+    <section id="section-finance" class="view-section">
+      <!-- Daily Recap Banner (Smart Evening Check) -->
+      <div id="daily-recap-banner" class="daily-recap-banner">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Financial KPIs Row -->
+      <div class="kpi-row">
+        <div class="kpi-card blue-border">
+          <div class="kpi-label">Ngân Sách Tháng</div>
+          <div class="kpi-value" id="kpi-total-budget">0 ₫</div>
+          <div style="font-size: 0.78rem; color: var(--text-tertiary);">Kế hoạch tài chính đầu tháng</div>
+        </div>
+
+        <div class="kpi-card amber-border">
+          <div class="kpi-label">Đã Chi Tiêu</div>
+          <div class="kpi-value" id="kpi-total-spent">0 ₫</div>
+          <div style="font-size: 0.78rem; color: var(--text-tertiary);">Tổng các khoản phát sinh</div>
+        </div>
+
+        <div class="kpi-card emerald-border">
+          <div class="kpi-label">Ngân Sách Còn Lại</div>
+          <div class="kpi-value" id="kpi-remaining-budget">0 ₫</div>
+          <div style="font-size: 0.78rem; color: var(--text-tertiary);">Khả dụng đến cuối tháng</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Trung Bình / Ngày</div>
+          <div class="kpi-value" id="kpi-daily-avg">0 ₫</div>
+          <div style="font-size: 0.78rem; color: var(--text-tertiary);">Mức tiêu dùng hàng ngày</div>
+        </div>
+      </div>
+
+      <!-- Finance Main Grid -->
+      <div class="finance-grid">
+        <!-- Left: Calendar & Daily Transactions Table -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- Calendar Card -->
+          <div class="calendar-container">
+            <div class="calendar-header">
+              <div class="calendar-nav-title" id="cal-month-title">Tháng 10 / 2026</div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <button class="btn btn-secondary btn-icon" id="cal-prev-month" title="Tháng trước">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button class="btn btn-secondary" id="cal-today-btn" style="padding: 0.35rem 0.85rem; font-size: 0.82rem;">Hôm nay</button>
+                <button class="btn btn-secondary btn-icon" id="cal-next-month" title="Tháng sau">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Weekday headers -->
+            <div class="calendar-grid" style="margin-bottom: 4px;">
+              <div class="calendar-weekday">CN</div>
+              <div class="calendar-weekday">T2</div>
+              <div class="calendar-weekday">T3</div>
+              <div class="calendar-weekday">T4</div>
+              <div class="calendar-weekday">T5</div>
+              <div class="calendar-weekday">T6</div>
+              <div class="calendar-weekday">T7</div>
+            </div>
+
+            <!-- Days cells -->
+            <div id="calendar-days-grid" class="calendar-grid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Transactions Table Card -->
+          <div class="card">
+            <div class="card-title">
+              <span id="tx-table-context-title">Danh sách giao dịch</span>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn btn-secondary" id="btn-export-csv" title="Xuất ra file CSV cho Excel">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                  Xuất CSV
+                </button>
+                <button class="btn btn-emerald" id="btn-new-tx">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"/></svg>
+                  Ghi Khoản Chi
+                </button>
+              </div>
+            </div>
+
+            <!-- Filter & Search Toolbar -->
+            <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
+              <input type="text" id="tx-search-input" class="form-input" placeholder="Tìm theo ghi chú, tag..." style="flex: 2; min-width: 180px;">
+              <select id="tx-filter-tag" class="form-select" style="flex: 1; min-width: 140px;">
+                <option value="all">Tất cả Tag</option>
+                <option value="Food">Food (Ăn uống)</option>
+                <option value="Study">Study (Học tập)</option>
+                <option value="Invest">Invest (Đầu tư)</option>
+                <option value="Entertain">Entertain (Giải trí)</option>
+                <option value="Transport">Transport (Đi lại)</option>
+                <option value="Shopping">Shopping (Mua sắm)</option>
+                <option value="Medical">Medical (Sức khỏe)</option>
+                <option value="Bills">Bills (Hóa đơn)</option>
+              </select>
+            </div>
+
+            <!-- Table -->
+            <div class="tx-table-container">
+              <table class="tx-table">
+                <thead>
+                  <tr>
+                    <th>Thời gian</th>
+                    <th>Số tiền</th>
+                    <th>Quỹ trừ</th>
+                    <th>Tag</th>
+                    <th>Ghi chú chi tiết</th>
+                    <th style="text-align: right;">Xóa</th>
+                  </tr>
+                </thead>
+                <tbody id="transactions-tbody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Funds Allocation & SVG Donut Chart -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- Funds Allocation Card -->
+          <div class="card">
+            <div class="card-title">
+              <span>Quỹ Chi Tiêu Trong Tháng</span>
+              <button class="btn btn-icon btn-secondary" id="btn-config-budget" title="Cài đặt ngân sách & quỹ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <div id="funds-progress-container" class="fund-bar-list">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Donut % Chart Card -->
+          <div class="card">
+            <div class="card-title">
+              <span>Tỷ Trọng Chi Tiêu (% Tag)</span>
+            </div>
+            <div class="donut-chart-container" id="donut-chart-wrapper">
+              <!-- Rendered via JS -->
+            </div>
+            <div id="chart-legend-container" class="chart-legend">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       NOTION-STYLE TASK DETAIL DRAWER
+       ==================================================================== -->
+  <div class="task-drawer-overlay" id="task-drawer-overlay"></div>
+  <aside class="task-drawer" id="task-drawer">
+    <!-- Header -->
+    <div class="drawer-header">
+      <div style="flex: 1; overflow: hidden; padding-right: 0.75rem;">
+        <div id="drawer-task-title" style="font-size: 1.15rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Tiêu đề nhiệm vụ</div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 0.35rem; font-size: 0.8rem; flex-wrap: wrap;">
+          <span id="drawer-proj-badge"></span>
+          <span id="drawer-priority-badge" class="task-badge badge-medium"></span>
+          <span id="drawer-deadline-badge"></span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.4rem;">
+        <button class="btn btn-icon btn-secondary" id="btn-toggle-task-settings" title="Cài đặt & Sửa thông tin task">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+        <button class="btn btn-icon btn-secondary" id="close-drawer-btn" title="Đóng bảng">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Task Quick Settings Panel (Collapsible) -->
+    <div id="drawer-task-settings-panel" style="display: none; padding: 1.15rem 1.4rem; background: var(--bg-input); border-bottom: 1px solid var(--border-subtle); animation: fadeIn 0.2s ease;">
+      <div style="font-size: 0.82rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 6px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>Chỉnh Sửa Thông Tin Nhiệm Vụ</span>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 0.75rem;">
+        <label class="form-label" style="font-size: 0.78rem;">Tên nhiệm vụ</label>
+        <input type="text" id="edit-task-title" class="form-input" placeholder="Tên nhiệm vụ..." required>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label" style="font-size: 0.78rem;">Hạn chót (Deadline Ngày & Giờ)</label>
+          <input type="datetime-local" id="edit-task-deadline" class="form-input">
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label" style="font-size: 0.78rem;">Mức độ ưu tiên</label>
+          <select id="edit-task-priority" class="form-select">
+            <option value="urgent">🔥 Khẩn cấp</option>
+            <option value="high">⚡ Ưu tiên cao</option>
+            <option value="medium">🔷 Trung bình</option>
+            <option value="low">⚪ Thấp</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 0.85rem;">
+        <label class="form-label" style="font-size: 0.78rem;">Thuộc Kế Hoạch / Dự Án</label>
+        <select id="edit-task-project" class="form-select">
+          <!-- Rendered via JS -->
+        </select>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 0.5rem;">
+        <button type="button" class="btn btn-secondary" id="btn-cancel-task-settings" style="padding: 0.35rem 0.85rem; font-size: 0.82rem;">Đóng</button>
+        <button type="button" class="btn btn-primary" id="btn-save-task-settings" style="padding: 0.35rem 0.85rem; font-size: 0.82rem;">Lưu Thay Đổi</button>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="drawer-body">
+      <!-- 1. Subtasks Checklist -->
+      <div class="notion-section">
+        <div class="notion-section-title">
+          <span>Việc Cần Làm Con (Checklist)</span>
+          <span id="drawer-subtasks-percent" style="color: var(--accent-cyan);">0%</span>
+        </div>
+        <div class="progress-track" style="margin-bottom: 0.75rem;">
+          <div id="drawer-subtasks-progress" class="progress-fill" style="width: 0%; background-color: var(--accent-emerald);"></div>
+        </div>
+        <div id="drawer-subtasks-list" style="margin-bottom: 0.75rem;"></div>
+        <div style="display: flex; gap: 0.5rem;">
+          <input type="text" id="drawer-subtask-input" class="form-input" placeholder="Thêm việc con mới (nhấn Enter)...">
+          <button class="btn btn-secondary" id="btn-add-subtask">Thêm</button>
+        </div>
+      </div>
+
+      <!-- 2. Notion-style Details Note -->
+      <div class="notion-section">
+        <div class="notion-section-title">
+          <span>Nội Dung Chi Tiết (Ghi Chú Notion)</span>
+          <button class="btn btn-secondary" id="btn-toggle-edit-details" style="padding: 0.25rem 0.65rem; font-size: 0.78rem;">
+            Sửa ghi chú
+          </button>
+        </div>
+        <!-- Rendered Markdown View -->
+        <div id="drawer-details-view" style="background: var(--bg-input); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1rem; min-height: 90px; line-height: 1.6;"></div>
+        <!-- Markdown Edit Textarea -->
+        <div id="drawer-details-edit" style="display: none; margin-top: 0.5rem;">
+          <textarea id="drawer-details-textarea" class="form-textarea" rows="6" placeholder="Viết chi tiết công việc bằng cú pháp Markdown (# Tiêu đề, - [ ] checklist, > trích dẫn, **in đậm**)..."></textarea>
+          <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem;">
+            <button class="btn btn-primary" id="btn-save-details">Lưu ghi chú</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Links Section -->
+      <div class="notion-section">
+        <div class="notion-section-title">
+          <span>Liên Kết & Tài Liệu Tham Khảo</span>
+        </div>
+        <div id="drawer-links-list"></div>
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;">
+          <input type="text" id="drawer-link-title" class="form-input" placeholder="Tiêu đề link (vd: Cổng đào tạo)" style="flex: 1; min-width: 140px;">
+          <input type="url" id="drawer-link-url" class="form-input" placeholder="https://..." style="flex: 2; min-width: 180px;">
+          <button class="btn btn-secondary" id="btn-add-drawer-link">Gắn Link</button>
+        </div>
+      </div>
+
+      <!-- 4. Local File Attachments -->
+      <div class="notion-section">
+        <div class="notion-section-title">
+          <span>Tệp Đính Kèm Cục Bộ (Máy Tính)</span>
+        </div>
+        <div class="file-dropzone" id="drawer-dropzone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); margin-bottom: 0.4rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+          <div style="font-weight: 600; font-size: 0.85rem;">Kéo thả file vào đây hoặc bấm để chọn file</div>
+          <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.2rem;">Hỗ trợ PDF, Word, Excel, Hình ảnh, Zip... lưu trực tiếp vào ổ cứng</div>
+          <input type="file" id="drawer-file-input" style="display: none;" multiple>
+        </div>
+        <div id="drawer-attachments-list"></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ====================================================================
+       MODALS
+       ==================================================================== -->
+
+  <!-- 1. Modal: Thêm Dự Án Mới -->
+  <div class="modal-overlay" id="modal-new-project">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Tạo Kế Hoạch / Dự Án Mới</div>
+        <button class="btn btn-icon btn-secondary modal-close">✕</button>
+      </div>
+      <form id="form-new-project">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Tên kế hoạch / Dự án lớn</label>
+            <input type="text" id="project-title-input" class="form-input" placeholder="Ví dụ: Học Kỳ 2026.1, Nghiên Cứu Khoa Học..." required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mô tả mục tiêu</label>
+            <textarea id="project-desc-input" class="form-textarea" rows="2" placeholder="Tóm tắt mục tiêu cần đạt được..."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Màu sắc nhận diện</label>
+            <input type="color" id="project-color-input" value="#38bdf8" style="width: 100%; height: 38px; border: 1px solid var(--border-subtle); border-radius: 8px; cursor: pointer; background: var(--bg-input);">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-cancel">Hủy</button>
+          <button type="submit" class="btn btn-primary">Tạo Dự Án</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Modal: Thêm Nhiệm Vụ Mới -->
+  <div class="modal-overlay" id="modal-new-task">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Thêm Nhiệm Vụ & Deadline Mới</div>
+        <button class="btn btn-icon btn-secondary modal-close">✕</button>
+      </div>
+      <form id="form-new-task">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Tên nhiệm vụ / Deadline</label>
+            <input type="text" id="task-title-input" class="form-input" placeholder="Ví dụ: Nộp báo cáo giữa kỳ, Chạy bộ 5km..." required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Thuộc kế hoạch lớn / Dự án</label>
+            <select id="task-project-select" class="form-select">
+              <!-- Rendered options -->
+            </select>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Hạn chót (Deadline Ngày & Giờ)</label>
+              <input type="datetime-local" id="task-deadline-input" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mức độ ưu tiên</label>
+              <select id="task-priority-select" class="form-select">
+                <option value="urgent">🔥 Khẩn cấp</option>
+                <option value="high">⚡ Ưu tiên cao</option>
+                <option value="medium" selected>🔷 Trung bình</option>
+                <option value="low">⚪ Thấp</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Ghi chú tóm tắt (có thể bổ sung chi tiết sau)</label>
+            <textarea id="task-details-input" class="form-textarea" rows="2" placeholder="Những điểm cần lưu ý..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-cancel">Hủy</button>
+          <button type="submit" class="btn btn-primary">Lưu Nhiệm Vụ</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Modal: Ghi Nhận Khoản Chi Mới -->
+  <div class="modal-overlay" id="modal-new-tx">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Ghi Nhận Khoản Chi Tiêu</div>
+        <button class="btn btn-icon btn-secondary modal-close">✕</button>
+      </div>
+      <form id="form-new-tx">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Số tiền chi (VND)</label>
+            <input type="number" id="tx-amount-input" class="form-input" placeholder="Ví dụ: 45000" style="font-size: 1.2rem; font-weight: 700; color: var(--accent-rose);" required min="1000">
+            <div id="tx-amount-preview" style="font-size: 0.85rem; font-weight: 600; color: var(--accent-emerald); margin-top: 0.3rem;">0 ₫</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Ngày chi</label>
+              <input type="date" id="tx-date-input" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Giờ chi</label>
+              <input type="time" id="tx-time-input" class="form-input" required>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Trừ vào Quỹ chi tiêu</label>
+              <select id="tx-fund-select" class="form-select">
+                <!-- Rendered options -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Danh mục (Tag)</label>
+              <select id="tx-tag-select" class="form-select">
+                <!-- Rendered options -->
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Ghi chú chi tiết mục đích chi tiêu</label>
+            <input type="text" id="tx-note-input" class="form-input" placeholder="Ví dụ: Cơm trưa với đồng nghiệp, Mua sách ôn thi...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-cancel">Hủy</button>
+          <button type="submit" class="btn btn-emerald">Lưu Khoản Chi</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Modal: Cài Đặt Ngân Sách & Quỹ -->
+  <div class="modal-overlay" id="modal-budget-config">
+    <div class="modal-content" style="width: 580px;">
+      <div class="modal-header">
+        <div class="modal-title">Cài Đặt Ngân Sách & Quỹ Chi Tiêu</div>
+        <button class="btn btn-icon btn-secondary modal-close">✕</button>
+      </div>
+      <form id="form-budget-config">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Tổng ngân sách tháng (VND)</label>
+            <input type="number" id="budget-total-input" class="form-input" placeholder="Ví dụ: 18000000" style="font-size: 1.15rem; font-weight: 700; color: var(--accent-cyan);" required min="0">
+          </div>
+
+          <!-- Mode Switcher -->
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span class="form-label" style="margin-bottom: 0;">Phương thức phân bổ quỹ:</span>
+              <div class="budget-mode-toggle">
+                <button type="button" class="budget-mode-btn active" id="btn-mode-percent" onclick="FinanceModule.switchBudgetMode('percent')">Theo Tỷ Lệ %</button>
+                <button type="button" class="budget-mode-btn" id="btn-mode-amount" onclick="FinanceModule.switchBudgetMode('amount')">Số Tiền Cố Định (VNĐ)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+              <label class="form-label" style="margin-bottom: 0;">Danh sách Quỹ chi tiêu</label>
+              <button type="button" class="btn btn-secondary" id="btn-add-fund-row" style="padding: 0.25rem 0.65rem; font-size: 0.78rem;" onclick="FinanceModule.addNewFundRow()">
+                + Thêm Quỹ Mới
+              </button>
+            </div>
+
+            <!-- Dynamic Funds List -->
+            <div id="budget-funds-editor-list" style="display: flex; flex-direction: column; gap: 0.6rem; max-height: 260px; overflow-y: auto; padding-right: 4px;">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Allocation Summary Bar -->
+            <div id="budget-allocation-summary" style="margin-top: 0.85rem; padding: 0.75rem 1rem; border-radius: 8px; background: var(--bg-input); border: 1px solid var(--border-subtle); font-size: 0.82rem; display: flex; justify-content: space-between; align-items: center;">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-cancel">Hủy</button>
+          <button type="submit" class="btn btn-primary">Lưu Cấu Hình</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. Modal: Tổng Kết Chi Tiêu Cuối Ngày (Daily Recap) -->
+  <div class="modal-overlay" id="modal-daily-recap">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">🌙 Tổng Kết & Đối Soát Chi Tiêu Trong Ngày</div>
+        <button class="btn btn-icon btn-secondary modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: var(--bg-input); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="color: var(--text-secondary); font-size: 0.85rem;">Ngày tổng kết:</span>
+            <strong id="recap-modal-date" style="color: var(--accent-cyan);"></strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="color: var(--text-secondary); font-size: 0.85rem;">Tổng số giao dịch đã ghi:</span>
+            <strong id="recap-modal-count">0</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-top: 1px dashed var(--border-subtle); padding-top: 0.5rem; margin-top: 0.5rem;">
+            <span style="color: var(--text-primary); font-weight: 700; font-size: 0.95rem;">Tổng số tiền đã tiêu:</span>
+            <strong id="recap-modal-total" style="font-size: 1.15rem; color: var(--accent-rose); font-weight: 800;">0 ₫</strong>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ghi chú đối soát / Rút kinh nghiệm tài chính hôm nay</label>
+          <textarea id="recap-modal-note" class="form-textarea" rows="3" placeholder="Ví dụ: Đã ghi đầy đủ 3 bữa ăn, không có khoản chi thừa, đạt mục tiêu tiết kiệm..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-cancel">Đóng</button>
+        <button type="button" class="btn btn-emerald" id="btn-confirm-daily-recap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          Xác Nhận Hoàn Thành Ngày
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Modal: Thay Đổi Logo Ứng Dụng -->
+  <div class="modal-overlay" id="modal-logo-settings">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Thay Đổi Logo Góc Trái Ứng Dụng</div>
+        <button class="btn btn-icon btn-secondary modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Bạn có thể thay đổi logo hiển thị ở góc trên bên trái màn hình bằng một trong 2 cách:
+        </p>
+
+        <!-- Cách 1: Upload qua Web -->
+        <div style="margin-bottom: 1.25rem;">
+          <div style="font-size: 0.82rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.4rem;">CÁCH 1: TẢI ẢNH TRỰC TIẾP TỪ TRÌNH DUYỆT</div>
+          <div class="file-dropzone" id="logo-dropzone">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); margin-bottom: 0.4rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+            <div style="font-weight: 600; font-size: 0.85rem;">Bấm để chọn file logo hoặc kéo thả ảnh vào đây</div>
+            <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.2rem;">Hỗ trợ .png, .jpg, .svg, .webp (Khuyên dùng ảnh nền trong suốt)</div>
+            <input type="file" id="logo-file-input" accept="image/*" style="display: none;">
+          </div>
+        </div>
+
+        <!-- Cách 2: Thư mục Windows Explorer -->
+        <div style="background: var(--bg-input); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.85rem; font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5;">
+          <div style="font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.25rem;">CÁCH 2: THẢ VÀO THƯ MỤC MÁY TÍNH</div>
+          <div>Copy file ảnh của bạn vào thư mục:</div>
+          <code style="display:block; margin: 0.35rem 0; padding: 0.35rem 0.5rem; background: var(--bg-card); border-radius: 4px; color: var(--accent-cyan); word-break: break-all;">
+            public\custom-logo\logo.png
+          </code>
+          <div>Sau khi copy xong, chỉ cần tải lại trang là logo sẽ tự động cập nhật!</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="btn-reset-logo" style="margin-right: auto;">
+          Khôi Phục Mặc Định
+        </button>
+        <button type="button" class="btn btn-secondary modal-cancel">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Modal: Cài Đặt Chung & Dữ Liệu -->
+  <div class="modal-overlay" id="modal-app-settings">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Cài Đặt Hệ Thống & Dữ Liệu</div>
+        <button class="btn btn-icon btn-secondary modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Quản Lý Dữ Liệu</label>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <button class="btn btn-secondary" id="btn-reset-demo-data" style="justify-content: flex-start; text-align: left; padding: 0.75rem 1rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); margin-right: 0.5rem;"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+              <div>
+                <div style="font-weight: 700;">Nạp Lại Dữ Liệu Mẫu (Demo Data)</div>
+                <div style="font-size: 0.75rem; color: var(--text-tertiary);">Tải các dự án, deadline và chi tiêu mẫu thực tế của sinh viên Bách Khoa</div>
+              </div>
+            </button>
+
+            <button class="btn btn-danger" id="btn-clear-all-data" style="justify-content: flex-start; text-align: left; padding: 0.75rem 1rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+              <div>
+                <div style="font-weight: 700;">Xóa Sạch Dữ Liệu (Trang Trắng)</div>
+                <div style="font-size: 0.75rem; opacity: 0.8;">Xóa mọi task và lịch sử chi tiêu để bạn tự nhập mới từ đầu</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-input); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.85rem; font-size: 0.8rem; color: var(--text-secondary); margin-top: 1rem;">
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">📂 Nơi Lưu Dữ Liệu Của Bạn:</div>
+          <div>Tất cả dữ liệu được lưu an toàn tại máy của bạn:</div>
+          <div style="color: var(--accent-cyan); margin-top: 2px;">• File dữ liệu: <code>data\db.json</code></div>
+          <div style="color: var(--accent-cyan); margin-top: 2px;">• File đính kèm: <code>uploads\tasks\</code></div>
+          <div style="color: var(--accent-cyan); margin-top: 2px;">• Logo tùy biến: <code>public\custom-logo\</code></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-cancel">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Unlock PIN (Khi truy cập Online qua Render) -->
+  <div class="modal-overlay" id="modal-pin-unlock" style="z-index: 9999;">
+    <div class="modal-card" style="max-width: 360px; text-align: center; border: 1px solid var(--border-focus); box-shadow: 0 10px 40px rgba(0,0,0,0.6);">
+      <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🔒</div>
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-primary);">LajaOS Bảo Mật</h3>
+      <p style="font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 1.25rem;">Hệ thống đang được bảo vệ. Vui lòng nhập mã PIN để mở khóa</p>
+      <form id="form-pin-unlock" onsubmit="event.preventDefault(); App.submitPin();">
+        <div class="form-group" style="margin-bottom: 0.5rem;">
+          <input type="password" id="input-access-pin" class="form-input" placeholder="Nhập mã PIN..." style="text-align: center; font-size: 1.3rem; letter-spacing: 5px; font-weight: 700;" maxlength="12" autofocus required>
+        </div>
+        <div id="pin-error-msg" style="color: var(--accent-rose); font-size: 0.8rem; margin-bottom: 0.75rem; display: none;">Mã PIN không chính xác!</div>
+        <button type="submit" class="btn btn-primary" id="btn-submit-pin" style="width: 100%; justify-content: center; padding: 0.65rem;">
+          Mở Khóa LajaOS
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/planner.js"></script>
+  <script src="/js/finance.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

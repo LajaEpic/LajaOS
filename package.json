@@ -1,0 +1,16 @@
+{
+  "name": "lajaos",
+  "version": "1.0.0",
+  "description": "LajaOS - Hệ điều hành quản lý đời sống cá nhân",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "sync": "node sync.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "mongodb": "^6.10.0"
+  }
+}
